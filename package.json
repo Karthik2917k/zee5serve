@@ -20,9 +20,5 @@
     "passport-github": "^1.1.0",
     "passport-google-oauth20": "^2.0.0",
     "uuid": "^9.0.0"
-  },
-  "devDependencies": {
-    "dotenv": "^16.0.3",
-    "nodemon": "^2.0.20"
   }
 }

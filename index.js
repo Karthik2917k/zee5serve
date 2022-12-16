@@ -1,5 +1,4 @@
 const express = require("express");
-require("dotenv").config();
 const server = express();
 const jwt = require("jsonwebtoken");
 const connect = require("./Utils/dbconnect.js");

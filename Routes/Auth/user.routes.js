@@ -3,7 +3,6 @@ const User = require("../../Models/user.model.js");
 const jwt = require("jsonwebtoken");
 const server = express.Router();
 const bcrypt = require("bcrypt");
-require("dotenv").config();
 server.post("/signup", async (req, res) => {
   let { name, email, password, pic } = req.body;
 
