@@ -38,14 +38,11 @@ server.get(
         const token = await jwt.sign(req.user, "KARTHIK");
         console.log(token);
         res.cookie("TOKEN", token);
+        return res.redirect(`http://localhost:3000?token=${token}`);
       } catch (e) {
         console.log(e);
       }
     }
-
-    // Successful authentication, redirect home.
-        res.redirect(`http://localhost:3000?token=${token}`);
-
   }
 );
 
@@ -65,18 +62,15 @@ server.get(
         const token = await jwt.sign(req.user, "KARTHIK");
         console.log(token);
         res.cookie("TOKEN", token);
+        return res.redirect(`http://localhost:3000?token=${token}`);
       } catch (e) {
         console.log(e);
       }
     }
 
     // Successful authentication, redirect home.
-    res.redirect(`http://localhost:3000?token=${token}`);
-
   }
 );
-
-
 
 server.listen(PORT, async () => {
   try {
