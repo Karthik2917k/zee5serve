@@ -40,7 +40,7 @@ server.get(
         const token = await jwt.sign(req.user, "KARTHIK");
         console.log(token);
         res.cookie("TOKEN", token);
-        return res.redirect(`http://localhost:3000?token=${token}`);
+        return res.redirect(`https://temporary-bag-6678.vercel.app?token=${token}`);
       } catch (e) {
         console.log(e);
       }
@@ -64,7 +64,7 @@ server.get(
         const token = await jwt.sign(req.user, "KARTHIK");
         console.log(token);
         res.cookie("TOKEN", token);
-        return res.redirect(`http://localhost:3000?token=${token}`);
+        return res.redirect(`https://temporary-bag-6678.vercel.app?token=${token}`);
       } catch (e) {
         console.log(e);
       }
