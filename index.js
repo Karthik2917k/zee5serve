@@ -13,7 +13,9 @@ const github = require("./Routes/Auth/githuboauth");
 const cookieParser = require("cookie-parser");
 server.use(cookieParser());
 const userRouter = require("./Routes/Auth/user.routes.js");
+const MoviesRouter  = require("./Routes/Serach/search.route.js")
 server.use("/user", userRouter);
+server.use("/", MoviesRouter);
 const PORT = 8080;
 server.get("/", (req, res) => {
   res.send("Hello world!");
