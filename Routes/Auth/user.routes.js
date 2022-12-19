@@ -35,6 +35,20 @@ server.post("/signup", async (req, res) => {
   }
 });
 
+server.get("/search",async(req,res)=>{
+  const {user,page,limit} = req.query;
+  try{
+
+    let uset  = await User.find({
+      name:{ $regex:user ,$options:"i"}
+    })
+    return res.status(200).send(uset)
+  }catch(e){
+    return res.status(404).send(e.message);
+  }
+})
+
+
 server.post("/signin", async (req, res) => {
   let { password, email } = req.body;
   try {
@@ -80,11 +94,17 @@ server.post("/signin", async (req, res) => {
 });
 
 server.get("/",async(req,res)=>{
+  const {page,limit}=req.query;
   try{
-    let users = await User.find();
+    if(page&&limit){
+      let users = await User.find().skip((page - 1) * limit)
+    .limit(limit);
+    return res.status(200).send(users)
+    }
+    let users = await User.find()
     return res.status(200).send(users)
   }
-  catch{
+  catch(e){
     res.status(404).send(e.message);
   }
 })
